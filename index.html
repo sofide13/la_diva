@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La diva cosmétique - Beauté naturelle et authentique</title>
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* En-tête */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        
+        /* Section Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #b8941f;
+        }
+        
+        /* Section Produits */
+        .products {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+        
+        /* Section À propos */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Section Témoignages */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Section CTA */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(212, 175, 55, 0.9), rgba(212, 175, 55, 0.9)), url('https://images.unsplash.com/photo-1556227834-09f1de7a7bb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-light {
+            background: white;
+            color: #d4af37;
+        }
+        
+        .btn-light:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Pied de page */
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #d4af37;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #d4af37;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">La diva cosmétique</div>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Révélez votre beauté naturelle</h1>
+                <p>Découvrez notre gamme de produits cosmétiques naturels et bio, conçus pour sublimer votre peau tout en respectant l'environnement.</p>
+                <a href="#produits" class="btn">Découvrir nos produits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section class="products" id="produits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos produits phares</h2>
+                <p>Des formulations uniques à base d'ingrédients naturels soigneusement sélectionnés</p>
+            </div>
+            <div class="product-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Crème hydratante" class="product-img">
+                    <div class="product-info">
+                        <h3>Crème hydratante intense</h3>
+                        <p>Une crème riche en actifs naturels pour une hydratation 24h</p>
+                        <div class="price">29,90 €</div>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sérum anti-âge" class="product-img">
+                    <div class="product-info">
+                        <h3>Sérum anti-âge premium</h3>
+                        <p>Réduit visiblement les rides et ridules en 4 semaines</p>
+                        <div class="price">49,90 €</div>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1348&q=80" alt="Masque purifiant" class="product-img">
+                    <div class="product-info">
+                        <h3>Masque purifiant argile verte</h3>
+                        <p>Purifie et resserre les pores en douceur</p>
+                        <div class="price">24,90 €</div>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1556227834-09f1de7a7bb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Huile nourrissante" class="product-img">
+                    <div class="product-info">
+                        <h3>Huile nourrissante multi-usages</h3>
+                        <p>Pour le visage, le corps et les cheveux</p>
+                        <div class="price">34,90 €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="about" id="apropos">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Notre histoire</h2>
+                    <p>Fondée en 2020, La diva cosmétique est née d'une passion pour les soins naturels et du désir d'offrir des produits cosmétiques efficaces, respectueux de la peau et de l'environnement.</p>
+                    <p>Notre équipe de chercheurs et de passionnés travaille sans relâche pour développer des formules uniques qui allient les bienfaits de la nature aux avancées scientifiques.</p>
+                    <p>Tous nos produits sont cruelty-free, sans parabènes ni silicones, et fabriqués en France.</p>
+                    <a href="#contact" class="btn">Nous contacter</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80" alt="Notre équipe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="testimonials" id="temoignages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce que disent nos clientes</h2>
+                <p>Découvrez les expériences de celles qui ont déjà testé nos produits</p>
+            </div>
+            <div class="testimonial-grid">
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "J'utilise la crème hydratante depuis 3 mois et ma peau n'a jamais été aussi douce et hydratée. Je recommande vivement !"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sophie Martin" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Sophie Martin</h4>
+                            <p>Client depuis 2021</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Le sérum anti-âge a vraiment réduit mes rides. En plus, il sent divinement bon. Un produit exceptionnel !"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Dubois" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Marie Dubois</h4>
+                            <p>Client depuis 2022</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "J'adore l'approche naturelle de La diva cosmétique. Tous les produits sont doux pour ma peau sensible."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Claire Lefevre" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Claire Lefevre</h4>
+                            <p>Client depuis 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Prête à révéler votre beauté naturelle ?</h2>
+            <p>Rejoignez nos milliers de clientes satisfaites et profitez de -15% sur votre première commande avec le code DIVA15</p>
+            <a href="#produits" class="btn btn-light">Commander maintenant</a>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>La diva cosmétique</h3>
+                    <p>Votre beauté, notre passion. Des produits naturels et efficaces pour prendre soin de vous.</p>
+                    <div class="social-links">
+                        <a href="#"><i>FB</i></a>
+                        <a href="#"><i>IG</i></a>
+                        <a href="#"><i>TK</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Produits</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email: contact@ladivacosmetique.com</li>
+                        <li>Téléphone: 01 23 45 67 89</li>
+                        <li>Adresse: 123 Avenue de la Beauté, Paris</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Inscrivez-vous pour recevoir nos offres exclusives</p>
+                    <form>
+                        <input type="email" placeholder="Votre email" style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
+                        <button type="submit" class="btn" style="width: 100%;">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 La diva cosmétique. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Changement de style de la navbar au scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
